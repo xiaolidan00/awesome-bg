@@ -4,24 +4,49 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bg1</title>
+    <title>Document</title>
     <style>
-      .canvas-bg {
-        height: 500px;
-        width: 500px;
+      * {
+        box-sizing: border-box !important;
+      }
+      body {
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+      }
+      a {
+        width: 200px;
+        display: inline-block;
+        line-height: 32px;
+        text-align: center;
+        font-size: 16px;
+        color: dodgerblue;
+        border-radius: 16px;
+        background: white;
+        border: 1px solid dodgerblue;
+        text-decoration: none;
+        cursor: pointer;
+        margin: 4px;
+      }
+      a:active {
+        color: white;
+        background: dodgerblue;
       }
     </style>
-    <script
-      src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/simplex-noise/2.4.0/simplex-noise.min.js"
-      type="application/javascript"
-    ></script>
   </head>
   <body>
-    <div id="canvasBg" class="canvas-bg"></div>
-
-    <script type="module">
-      import { CanvasBg } from './bg1.js';
-      new CanvasBg(document.getElementById('canvasBg', 100));
+    <script src="./index.js"></script>
+    <script>
+      files.forEach((item) => {
+        let elmt = document.createElement('a');
+        elmt.href = 'bg.html?res=glsl/' + item;
+        elmt.innerText = item;
+        elmt.target = '_blank';
+        document.body.appendChild(elmt);
+      });
     </script>
   </body>
 </html>
