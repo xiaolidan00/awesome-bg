@@ -1,11 +1,15 @@
 function flatArr(arr) {
   return arr.flat(Infinity);
 }
+function resize(gl) {
+  gl.canvas.width = gl.canvas.parentElement.offsetWidth;
+  gl.canvas.height = gl.canvas.parentElement.offsetHeight;
+  gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+}
 function initGl(id) {
   var canvas = document.getElementById(id);
   canvas.style.background = 'black';
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+
   // var weglKey = ['webgl2', 'experimental-webgl2', 'webgl', 'experimental-webgl'];
 
   // var gl;
@@ -16,11 +20,9 @@ function initGl(id) {
   //   }
   // }
   var gl = canvas.getContext('webgl');
-  gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+  resize(gl);
   window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+    resize(gl);
   });
   return gl;
 }
@@ -156,7 +158,7 @@ async function init() {
   var startTime = performance.now();
   var mouse = { x: 0, y: 0 };
 
-  gl.canvas.addEventListener('click', (ev) => {
+  gl.canvas.addEventListener('pointer', (ev) => {
     mouse.x = ev.clientX / gl.canvas.width;
     mouse.y = 1 - ev.clientY / gl.canvas.height;
   });
