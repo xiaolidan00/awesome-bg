@@ -162,7 +162,7 @@ async function init() {
   var startTime = performance.now();
   var mouse = { x: 0, y: 0 };
 
-  gl.canvas.addEventListener('pointer', (ev) => {
+  gl.canvas.addEventListener('pointermove', (ev) => {
     mouse.x = ev.clientX / gl.canvas.width;
     mouse.y = 1 - ev.clientY / gl.canvas.height;
   });
