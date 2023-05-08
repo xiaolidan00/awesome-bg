@@ -45,6 +45,7 @@ function loadShader(gl, type, source) {
       (type == gl.VERTEX_SHADER ? '顶点着色器-错误' : '片元着色器-错误') +
         gl.getShaderInfoLog(shader)
     );
+    gl.deleteShader(shader);
     return null;
   }
 
@@ -65,6 +66,9 @@ function initShaderProgram(gl, fs) {
 
   if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
     console.log('Unable to initialize the shader program: ' + gl.getProgramInfoLog(shaderProgram));
+    gl.deleteProgram(shaderProgram); //删除着色器程序
+    gl.deleteProgram(fragmentShader); //删除片元着色器
+    gl.deleteProgram(vertexShader); //删除顶点着色器
     return null;
   }
   initArrBuffer(
