@@ -75,17 +75,21 @@ function initShaderProgram(gl, fs) {
     gl,
     'pos',
     new Float32Array(
-      flatArr([
-        [1.0, 1.0],
-        [1.0, -1.0],
-        [-1.0, -1.0],
-        [-1.0, -1.0],
-        [-1.0, 1.0],
-        [1.0, 1.0]
-      ])
+      flatArr(
+        [
+          [-1.0, 1.0],
+          [1.0, 1.0],
+          [-1.0, -1.0],
+          [-1.0, -1.0],
+          [1.0, 1.0],
+          [1.0, -1.0]
+        ].reverse()
+      )
     ),
     2
   );
+  //开启正反面
+  gl.enable(gl.CULL_FACE);
   return shaderProgram;
 }
 function getGLSL(url) {
