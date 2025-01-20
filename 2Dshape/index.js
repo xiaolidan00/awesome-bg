@@ -4,7 +4,7 @@ import shaderList from './shaders.js';
 
 const shaderhtml = [];
 shaderList.forEach((item) => {
-  shaderhtml.push(`<a id="${item}" href="#${item}">${item.substring(0, item.length - 3)}</a>`);
+  shaderhtml.push(`<a id="${item}" href="#${item}">${item.substring(0, item.length - 5)}</a>`);
 });
 console.log(shaderList);
 const menuDom = document.getElementById('menu');
