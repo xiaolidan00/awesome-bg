@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        padding: 10px;
+        background-color: dodgerblue;
+      }
+      #menu {
+        display: inline-block;
+        height: 100%;
+        width: 200px;
+        overflow-y: auto;
+        border-radius: 10px;
+        background-color: white;
+      }
+      #menu > a {
+        display: flex;
+        align-items: center;
+        height: 40px;
+        padding: 0 10px;
+        text-decoration: none;
+        color: #505050;
+      }
+      #menu > a:active,
+      #menu > a.active {
+        color: dodgerblue;
+      }
+      #content {
+        padding-left: 20px;
+        display: inline-block;
+        height: 100%;
+      }
+      #myCanvas {
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="menu"></div>
+    <div id="content">
+      <canvas id="myCanvas" height="450" width="800"></canvas>
+    </div>
+
+    <script type="module" src="./index.js"></script>
+  </body>
+</html>
